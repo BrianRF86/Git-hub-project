@@ -169,6 +169,19 @@ while (WindowShouldClose() == false) {
         player.Update();
         cpu.Update(ball.y);
 
+        // Paddle & Ball collisions
+
+        if(CheckCollisionCircleRec(Vector2{ball.x, ball.y}, ball.radius, Rectangle{plater.x, player.y, player.width, player.height}))
+        {
+            ball.speed_x *= -1; 
+        }
+        
+        if(CheckCollisionCircleRec(Vector2{cpu.x, cpu.y}, cpu.radius, Rectangle{cpu.x, cpu.y, cpu.width, cpu.height} ))
+        {
+            ball.speed_x *= -1;
+        }
+
+
     //Clearing canvas to remove ball trail
     ClearBackground(BLACK);
 
