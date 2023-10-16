@@ -1,7 +1,7 @@
 #include "raylib.h"
 
 //Defining ball parameters
-class ball{
+class Ball{
 
 public: 
 float x, y;
@@ -42,7 +42,7 @@ class paddle {
     void Draw() {
         DrawRectangle(x,y, width, height, WHITE);
     }
-}
+};
 
 
 Ball ball;
@@ -61,11 +61,11 @@ int main() {
     SetTargetFPS(60);
 
 //Setting ball radius
-ball.radius = 20;
-ball.x = screenWidth/2;
-ball.y = screenHeight/2;
-ball.speed_x = 7;
-ball.speed_y = 7;
+    ball.radius = 20;
+    ball.x = screenWidth/2;
+    ball.y = screenHeight/2;
+    ball.speed_x = 7;
+    ball.speed_y = 7;
 
     // The Game Loop
 while (WindowShouldClose() == false) {
