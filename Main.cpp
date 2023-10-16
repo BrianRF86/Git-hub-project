@@ -29,12 +29,33 @@ y += speed_y;
     if (x + radius >= GetScreenWidth()) // breaking if statement into 2 to allow for score count for CPU and removing the directional code
     {
         cpu_score++;
+
+    //Adding reset ball call after score for CPU
+
+        ResetBall()
     }
     
      if(x - radius <=0)
     {
         player_score++;
+
+        //Adding reset ball call after score for player
+        ResetBall();
     }
+
+}
+
+// Reseting ball after removing box edge collision
+void ResetBall()
+{
+    x = GetScreenWidth()/2;
+    y = GetScreenHeight()/2;
+
+//Random direction after reset
+
+    int speed_choices[2] = {1-1};
+    speed_x *= speed_choices[GetRandomValue(0,1)];
+    speed_y *= speed_choices[GetRandomValue(0,1)];
 
 }
 
