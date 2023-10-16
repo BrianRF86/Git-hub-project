@@ -204,7 +204,7 @@ while (WindowShouldClose() == false) {
         cpu.Draw();
         // Text boxes
         DrawText(TextFormat("%i" ,cpu_score), screenWidth/4 -20, 20, 80, WHITE);
-        DrawText(TextFormat("%i" ,player_score), screenWidth/4 -20, 20, 80, WHITE);
+        DrawText(TextFormat("%i" ,player_score), 3 * screenWidth/4 -20, 20, 80, WHITE);
         EndDrawing();
 
 }
