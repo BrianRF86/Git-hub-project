@@ -88,12 +88,12 @@ while (WindowShouldClose() == false) {
         EndDrawing();
 
 }
-};
-        
-    
 
 //De-initialization
 
-    CloseWindow();
+    CloseWindow(); 
     return 0;
-}
+
+};
+        
+    
