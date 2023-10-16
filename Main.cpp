@@ -1,5 +1,13 @@
 #include "raylib.h"
 
+
+// Adding Colours
+Color Red = RED;
+Color Blue = BLUE;
+Color Lime = LIME;
+Color Yellow = YELLOW;
+
+
 //scoreboard
 int player_score = 0;
 int cpu_score = 0;
@@ -13,7 +21,7 @@ int speed_x, speed_y;
 int radius;
 
 void Draw () {
-    DrawCircle(x, y, radius, WHITE);
+    DrawCircle(x, y, radius, YELLOW);
 }
 // making the ball move
 void Update() {
@@ -88,7 +96,7 @@ void LimitMovement() {
     int speed;
 
     void Draw() {
-        DrawRectangle(x, y, width, height, WHITE);
+        DrawRectangle(x, y, width, height, Blue);
     }
     
     // Paddle movements
@@ -127,6 +135,12 @@ class CpuPaddle: public paddle
 
 //Update CPU paddle with Ai using Y co-ordinates
   public:
+
+//changing CPU paddle colour
+
+   void Draw() {
+        DrawRectangle(x, y, width, height, Red);
+    }
 
     void Update(int ball_y)
     {
@@ -177,6 +191,7 @@ int main() {
     player.x = screenWidth - player.width -10;
     player.y = screenHeight/2 - player.height/2;
     player.speed = 6;
+  
 
 //CPU paddle parameters
 
@@ -213,7 +228,7 @@ while (WindowShouldClose() == false) {
 
 
     //Clearing canvas to remove ball trail
-    ClearBackground(BLACK);
+    ClearBackground(Lime);
 
         //Creating game elements paddles, ball, and midcourt line
         DrawLine(screenWidth/2, 0, screenWidth/2, screenHeight, WHITE);
