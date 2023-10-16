@@ -33,7 +33,25 @@ y += speed_y;
 
 //Paddle class
 
-class paddle {
+class paddle 
+
+{
+// creating inherited method to reduce code 
+protected:
+
+void LimitMovement();{
+
+    //copied from restricting paddle movements
+      if(y <= 0)
+        {
+            y = 0;
+        }
+        if(y + height >= GetScreenHeight())
+        {
+            y = GetScreenHeight() - height;
+        }
+}
+
     public:
     float x,y;
     float width, height;
@@ -67,6 +85,7 @@ class paddle {
         {
             y = GetScreenHeight() - height;
         }
+        LimitMovement();
     }
 
 };
@@ -90,6 +109,8 @@ class CpuPaddle: public paddle
         {
         y = y + speed;
         }
+
+        LimitMovement();
 
     }
   
