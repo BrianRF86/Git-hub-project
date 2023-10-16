@@ -39,7 +39,7 @@ class paddle
 // creating inherited method to reduce code 
 protected:
 
-void LimitMovement();{
+void LimitMovement() {
 
     //copied from restricting paddle movements
       if(y <= 0)
@@ -58,7 +58,7 @@ void LimitMovement();{
     int speed;
 
     void Draw() {
-        DrawRectangle(x,y, width, height, WHITE);
+        DrawRectangle(x, y, width, height, WHITE);
     }
     
     // Paddle movements
@@ -171,12 +171,12 @@ while (WindowShouldClose() == false) {
 
         // Paddle & Ball collisions
 
-        if(CheckCollisionCircleRec(Vector2{ball.x, ball.y}, ball.radius, Rectangle{plater.x, player.y, player.width, player.height}))
+        if(CheckCollisionCircleRec(Vector2{ball.x, ball.y}, ball.radius, Rectangle{player.x, player.y, player.width, player.height}))
         {
             ball.speed_x *= -1; 
         }
         
-        if(CheckCollisionCircleRec(Vector2{cpu.x, cpu.y}, cpu.radius, Rectangle{cpu.x, cpu.y, cpu.width, cpu.height} ))
+        if(CheckCollisionCircleRec(Vector2{ball.x, ball.y}, ball.radius, Rectangle{cpu.x, cpu.y, cpu.width, cpu.height} ))
         {
             ball.speed_x *= -1;
         }
