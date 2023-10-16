@@ -10,6 +10,11 @@ int radius;
 void Draw () {
     DrawCircle(x, y, radius, WHITE);
 }
+// making the ball move
+void Update() {
+x += speed_x;
+y += speed_y;
+}
 
 };
 
@@ -41,12 +46,18 @@ while (WindowShouldClose() == false) {
 
   // Setup Canvas
         BeginDrawing();
-        // Clear canvas to a specific color to avoid flicker
+        
+        // Updating
+        ball.Update();
+
+    //Clearing canvas to remove ball trail
+    ClearBackground(BLACK);
+
         //Creating game elements paddles, ball, and midcourt line
         DrawLine(screenWidth/2, 0, screenWidth/2, screenHeight, WHITE);
-ball.Draw();
-DrawRectangle(10,screenHeight / 2 - 60,25,120,WHITE);
-DrawRectangle(screenWidth-35, screenHeight / 2 - 60, 25, 120, WHITE);
+        ball.Draw();
+        DrawRectangle(10,screenHeight / 2 - 60,25,120,WHITE);
+        DrawRectangle(screenWidth-35, screenHeight / 2 - 60, 25, 120, WHITE);
         EndDrawing();
 
 }
