@@ -32,7 +32,7 @@ y += speed_y;
 
     //Adding reset ball call after score for CPU
 
-        ResetBall()
+        ResetBall();
     }
     
      if(x - radius <=0)
