@@ -1,5 +1,9 @@
 #include "raylib.h"
 
+//scoreboard
+int player_score = 0;
+int cpu_score = 0;
+
 //Defining ball parameters
 class Ball{
 
@@ -22,9 +26,14 @@ y += speed_y;
             speed_y *= -1;
     }
 
-    if (x + radius >= GetScreenWidth() || x - radius <=0)
+    if (x + radius >= GetScreenWidth()) // breaking if statement into 2 to allow for score count for CPU and removing the directional code
     {
-        speed_x *= -1;
+        cpu_score++;
+    }
+    
+     if(x - radius <=0)
+    {
+        player_score++;
     }
 
 }
