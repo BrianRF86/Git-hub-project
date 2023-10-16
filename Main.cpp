@@ -71,9 +71,34 @@ class paddle {
 
 };
 
+//Computer Paddle to inherit from Player/paddle. 
+
+class CpuPaddle: public paddle{
+
+//Update CPU paddle with Ai using Y co-ordinates
+  public:
+
+    void Update(int ball_y)
+    {
+    if(y + height/2 > ball_y)
+    {
+    y = y - speed;
+    }
+
+  if(y + height/2 <= ball_y)
+    {
+    y = y + speed;
+    }
+
+    }
+  
+}
+
+//Objects
 
 Ball ball;
 paddle player;
+CpuPaddle cpu;
 
 int main() {
     // Determine the Game Window Width and Height
@@ -101,6 +126,15 @@ int main() {
     player.y = screenHeight/2 - player.height/2;
     player.speed = 6;
 
+//CPU paddle parameters
+
+    cpu.height = 120;
+    cpu.width = 25; 
+    cpu.x = 10;
+    cpu.y = screenHeight/2 - cpu.height/2;
+    cpu.speed = 6;
+
+
     // The Game Loop
 while (WindowShouldClose() == false) {
 
@@ -111,6 +145,7 @@ while (WindowShouldClose() == false) {
         // Update Methods
         ball.Update();
         paddle.Update();
+        cpu.Update(ball.y);
 
     //Clearing canvas to remove ball trail
     ClearBackground(BLACK);
@@ -121,8 +156,8 @@ while (WindowShouldClose() == false) {
         //Add new draw protocols
 
         ball.Draw();
-        DrawRectangle(10,screenHeight / 2 - 60,25,120,WHITE);
         player.Draw();
+        cpu.Draw();
 
         EndDrawing();
 
