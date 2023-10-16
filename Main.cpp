@@ -49,7 +49,7 @@ Ball ball;
 paddle player;
 
 int main() {
-    // Determin the Game Window Width and Height
+    // Determine the Game Window Width and Height
     const int screenWidth = 1280;
     const int screenHeight = 800;
 
@@ -67,6 +67,13 @@ int main() {
     ball.speed_x = 7;
     ball.speed_y = 7;
 
+// Setting player/paddle parameters
+    player.width = 25;
+    player.height =120;
+    player.x = screenWidth - player.width -10;
+    player.y = screenHeight/2 - player.height/2;
+    player.speed = 6;
+
     // The Game Loop
 while (WindowShouldClose() == false) {
 
@@ -82,9 +89,13 @@ while (WindowShouldClose() == false) {
 
         //Creating game elements paddles, ball, and midcourt line
         DrawLine(screenWidth/2, 0, screenWidth/2, screenHeight, WHITE);
+
+        //Add new draw protocols
+
         ball.Draw();
         DrawRectangle(10,screenHeight / 2 - 60,25,120,WHITE);
-        DrawRectangle(screenWidth-35, screenHeight / 2 - 60, 25, 120, WHITE);
+        player.Draw();
+
         EndDrawing();
 
 }
