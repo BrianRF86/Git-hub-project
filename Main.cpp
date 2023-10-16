@@ -1,7 +1,7 @@
 #include "raylib.h"
 
 //Defining ball parameters
-class Ball{
+class ball{
 
 public: 
 float x, y;
