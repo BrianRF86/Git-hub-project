@@ -42,6 +42,33 @@ class paddle {
     void Draw() {
         DrawRectangle(x,y, width, height, WHITE);
     }
+    
+    // Paddle movements
+
+    void Update(){
+        if (IsKeyDown(KEY_UP))
+        {
+            y = y - speed;
+        }
+
+        if(IsKeyDown(KEY_DOWN))
+
+        {
+            y = y + speed;
+        }
+
+        //Restricting Paddle movements to screen
+
+        if(y <= 0)
+        {
+            y = 0;
+        }
+        if(y + height >= GetScreenHeight())
+        {
+            y = GetScreenHeight() - height;
+        }
+    }
+
 };
 
 
@@ -81,8 +108,9 @@ while (WindowShouldClose() == false) {
   // Setup Canvas
         BeginDrawing();
         
-        // Updating
+        // Update Methods
         ball.Update();
+        paddle.Update();
 
     //Clearing canvas to remove ball trail
     ClearBackground(BLACK);
