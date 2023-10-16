@@ -73,26 +73,27 @@ class paddle {
 
 //Computer Paddle to inherit from Player/paddle. 
 
-class CpuPaddle: public paddle{
+class CpuPaddle: public paddle
+{
 
 //Update CPU paddle with Ai using Y co-ordinates
   public:
 
     void Update(int ball_y)
     {
-    if(y + height/2 > ball_y)
-    {
-    y = y - speed;
-    }
+        if(y + height/2 > ball_y)
+        {
+        y = y - speed;
+        }
 
-  if(y + height/2 <= ball_y)
-    {
-    y = y + speed;
-    }
+        if(y + height/2 <= ball_y)
+        {
+        y = y + speed;
+        }
 
     }
   
-}
+};
 
 //Objects
 
@@ -144,7 +145,7 @@ while (WindowShouldClose() == false) {
         
         // Update Methods
         ball.Update();
-        paddle.Update();
+        player.Update();
         cpu.Update(ball.y);
 
     //Clearing canvas to remove ball trail
