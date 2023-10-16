@@ -2,6 +2,7 @@
 
 //Defining ball parameters
 class Ball{
+
 public: 
 float x, y;
 int speed_x, speed_y;
@@ -25,14 +26,27 @@ y += speed_y;
     {
         speed_x *= -1;
     }
-    
 
 }
 
 };
 
-Ball ball;
+//Paddle class
 
+class paddle {
+    public:
+    float x,y;
+    float width, height;
+    int speed;
+
+    void Draw() {
+        DrawRectangle(x,y, width, height, WHITE);
+    }
+}
+
+
+Ball ball;
+paddle player;
 
 int main() {
     // Determin the Game Window Width and Height
@@ -74,7 +88,7 @@ while (WindowShouldClose() == false) {
         EndDrawing();
 
 }
-
+};
         
     
 
