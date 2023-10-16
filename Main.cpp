@@ -1,5 +1,6 @@
 #include "raylib.h"
 
+//Reference: Followed Pong tutorial as a base for game https://www.youtube.com/watch?v=VLJlTaFvHo4
 
 // Adding Colours
 Color Red = RED;
